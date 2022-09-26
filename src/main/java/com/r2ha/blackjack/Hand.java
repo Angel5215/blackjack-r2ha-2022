@@ -16,6 +16,19 @@ public class Hand {
     public Hand() {
     }
 
+    public List<Card> cards() {
+        List<Card> cards = new ArrayList<>();
+        for (Card card: this.cards) {
+            Card copy = new Card(card.suit(), card.rank());
+            cards.add(copy);
+        }
+        return cards;
+    }
+
+    public Card dealerFaceUpCard() {
+        return cards.get(0);
+    }
+
     private int value() {
         int handValue = cards
                 .stream()
@@ -35,10 +48,6 @@ public class Hand {
         return handValue;
     }
 
-    public Card dealerFaceUpCard() {
-        return cards.get(0);
-    }
-
     boolean dealerMustDrawCard() {
         return value() <= 16;
     }
@@ -48,9 +57,9 @@ public class Hand {
     }
 
     String cardsAsString() {
-        return cards.stream()
-                    .map(ConsoleCard::display)
-                    .collect(Collectors.joining(
+        return cards().stream()
+                      .map(ConsoleCard::display)
+                      .collect(Collectors.joining(
                             ansi().cursorUp(6).cursorRight(1).toString()));
     }
 
