@@ -1,6 +1,7 @@
 package com.r2ha.blackjack;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 import java.util.List;
 
 public class Hand {
@@ -13,8 +14,8 @@ public class Hand {
     public Hand() {
     }
 
-    public List<Card> cards() {
-        return List.copyOf(cards);
+    public Stream<Card> cards() {
+        return cards.stream();
     }
 
     public Card dealerFaceUpCard() {

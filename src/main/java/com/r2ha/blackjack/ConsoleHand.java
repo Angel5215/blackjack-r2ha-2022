@@ -10,7 +10,7 @@ public class ConsoleHand {
     }
 
     static String cardsAsString(Hand hand) {
-        return hand.cards().stream()
+        return hand.cards()
                    .map(ConsoleCard::display)
                    .collect(Collectors.joining(
                             ansi().cursorUp(6).cursorRight(1).toString()));
