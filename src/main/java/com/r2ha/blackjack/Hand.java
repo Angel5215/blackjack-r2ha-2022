@@ -14,12 +14,7 @@ public class Hand {
     }
 
     public List<Card> cards() {
-        List<Card> cards = new ArrayList<>();
-        for (Card card: this.cards) {
-            Card copy = new Card(card.suit(), card.rank());
-            cards.add(copy);
-        }
-        return cards;
+        return List.copyOf(cards);
     }
 
     public Card dealerFaceUpCard() {
